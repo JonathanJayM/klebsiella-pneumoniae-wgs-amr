@@ -52,6 +52,29 @@ The repository will contain analysis scripts, tool and parameter documentation, 
 
 This is a draft genome assembly. Repeated sequences, fragmented contigs and annotation discrepancies may affect individual gene calls. Results should be interpreted in the context of the sequencing data, database versions and any available laboratory susceptibility results.
 
+## Running the workflow
+
+Run the scripts on a Linux system with Conda installed. The scripts are stored in the `scripts/` directory and should be run in the following order:
+
+1. `00_install_tools.sh` — Install the bioinformatics tools.
+2. `01_read_qc.sh` — Assess raw read quality with FastQC.
+3. `02_trim_reads.sh` — Trim paired-end reads with fastp.
+4. `03_assembly.sh` — Assemble the genome with SPAdes.
+5. `04_quast.sh` — Assess assembly statistics with QUAST.
+6. `05_busco.sh` — Assess genome completeness with BUSCO.
+7. `06_annotation.sh` — Annotate the assembly with Prokka.
+8. `07_amr.sh` — Detect antimicrobial resistance genes with AMRFinderPlus.
+9. `08_mapping.sh` — Map reads to the assembly with BWA and SAMtools.
+10. `09_multiqc.sh` — Summarise supported quality-control reports with MultiQC.
+
+### Before running
+
+- Confirm that the project directory and input FASTQ filenames match the paths in the scripts.
+- Activate the intended Conda environment before running analysis scripts.
+- Review each tool's output before proceeding to the next stage.
+- The scripts are documented in GitHub but must be tested on Linux before being considered validated.
+- Genome assembly and resistance-gene predictions do not replace laboratory antimicrobial susceptibility testing.
+  
 ## Author
 
 **Jonathan Mutinda**
