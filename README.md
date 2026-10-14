@@ -74,7 +74,43 @@ Run the scripts on a Linux system with Conda installed. The scripts are stored i
 - Review each tool's output before proceeding to the next stage.
 - The scripts are documented in GitHub but must be tested on Linux before being considered validated.
 - Genome assembly and resistance-gene predictions do not replace laboratory antimicrobial susceptibility testing.
-  
+
+  ## Workflow Overview
+
+```text
+Paired-end FASTQ reads
+        |
+        v
+Raw read quality control (FastQC)
+        |
+        v
+Read trimming and filtering (fastp)
+        |
+        v
+Genome assembly (SPAdes)
+        |
+        v
+Assembly assessment (QUAST and BUSCO)
+        |
+        v
+Genome annotation (Prokka)
+        |
+        v
+AMR gene detection (NCBI AMRFinderPlus)
+        |
+        v
+Read mapping (BWA and SAMtools)
+        |
+        v
+Mapping visualisation (IGV)
+        |
+        v
+Summary reports (MultiQC)
+```
+
+**Reproducibility:** The workflow scripts are provided in `scripts/`. They must be tested in the intended Linux/Conda environment before the workflow is considered fully validated.
+
+
 ## Author
 
 **Jonathan Mutinda**
