@@ -1,0 +1,29 @@
+
+# Sequencing data
+*.fastq
+*.fastq.gz
+*.fq
+*.fq.gz
+*.sra
+
+# Analysis outputs
+*.bam
+*.bai
+*.sam
+*.fasta
+*.fa
+*.fna
+*.gff
+*.gff3
+*.gbk
+*.fastq.html
+*.json
+
+# Temporary files and logs
+*.tmp
+*.log
+*.lock
+
+# Operating system files
+.DS_Store
+Thumbs.db
